@@ -359,3 +359,41 @@ void	avlBst::removeNode(int key)
 {
 	privateRemoveNode(key, root);
 }
+
+avlBst::Node*	avlBst::privateInOrderSuccessor(Node* node, Node* n)
+{
+	if (n->_right != nullptr)
+		return (returnNode(privateFindSmallest(n->_right)));
+	Node* succ = nullptr;
+	while (node != nullptr)
+	{
+		if (n->_key < node->_key)
+		{
+			succ = node;
+			node = node->_left;
+		}
+		else if (n->_key > node->_key)
+			node = node->_right;
+		else
+			break;
+	}
+	// std::cout << "succ: " << succ->_key << std::endl;
+	return (succ == nullptr) ? end : succ;
+}
+
+avlBst::Node*	avlBst::inOrderSuccessor(int key)
+{
+	return(privateInOrderSuccessor(root, returnNode(key)));
+}
+
+void	avlBst::privateMakeEndNode(Node* node)
+{
+	end = createLeaf(-101);
+	end->_left = node;
+	end->_right = nullptr;
+}
+
+void	avlBst::makeEndNode()
+{
+	privateMakeEndNode(root);
+}

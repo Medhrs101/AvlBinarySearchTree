@@ -13,6 +13,7 @@ private:
 		Node*	_right;
 	};
 	Node *root;
+	Node *end;
 	Node*	privateInsert(int key, Node* ptr);
 	int		height(Node *ptr);
 	int		getBalance(Node*);
@@ -21,22 +22,25 @@ private:
 	void	privatePrintInOrder(Node* ptr);
 	void 	privatePreOrder(Node* ptr);
 	Node*	privateReturnNode(int key, Node* ptr);
-	
+
 	int		privateFindSmallest(Node *ptr);
 	void	removeMatch(Node *parent, Node *match, bool left);
 	void	removeRootMatch();
 	Node*	privateRemoveNode(int key, Node *parent);
-
+	Node*	privateInOrderSuccessor(Node* root, Node* n);
+	void	privateMakeEndNode(Node* node);
 public:
 	avlBst();
 	~avlBst();
 	Node*   createLeaf(int key);
-	void   insert(int key);
+	void	insert(int key);
 	void	removeNode(int key);
 	void	printInOrder();
 	void 	preOrder();
 	void	printChildren(int key);
 	Node*	returnNode(int key);
+	Node*	inOrderSuccessor(int key);
+	void	makeEndNode();
 };
 
 #endif /* AVLBST_HPP */

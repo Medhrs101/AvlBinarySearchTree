@@ -20,11 +20,11 @@ int main()
     }
     std::cout << "*****************************************************************Print Family " << std::endl;
 
-    std::cout << "*****************************************************************remove Node " << std::endl;
-    avl_tree->removeNode(30);
-    avl_tree->removeNode(50);
-    avl_tree->insert(23);
-    std::cout << "*****************************************************************remove Node " << std::endl;
+    // std::cout << "*****************************************************************remove Node " << std::endl;
+    // avl_tree->removeNode(30);
+    // avl_tree->removeNode(50);
+    // avl_tree->insert(23);
+    // std::cout << "*****************************************************************remove Node " << std::endl;
 
     std::cout << "*****************************************************************Print Family " << std::endl;
     for (int i = 0; i < 7; i++)
@@ -34,6 +34,9 @@ int main()
     }
     std::cout << "*****************************************************************Print Family " << std::endl;
 
+    std::cout << "*****************************************************************inOrderSuccessor " << std::endl;
+    std::cout << (avl_tree->inOrderSuccessor(50))->_key << std::endl;
+    std::cout << "*****************************************************************inOrderSuccessor " << std::endl;
     std::cout << std::endl;
     delete avl_tree;
     return 0;
